@@ -16,8 +16,7 @@ spec:
     spec:
       containers:
         - name: pubsub-emulator
-          image: gcr.io/google.com/cloudsdktool/cloud-sdk:411.0.0-emulators
-          command: ["gcloud", "beta", "emulators", "pubsub", "start"]
+          image: gcr.io/google.com/cloudsdktool/google-cloud-cli:latest
           args: ["--project=hasb-omni-stg-01-ops", "--host-port=0.0.0.0:8085"]
 ---
 apiVersion: v1
