@@ -16,8 +16,7 @@ spec:
     spec:
       containers:
         - name: pubsubtwo-emulator
-          image: gcr.io/google.com/cloudsdktool/google-cloud-cli:latest
-          args: ["--project=hasb-omni-stg-01-ops", "--host-port=0.0.0.0:8085"]
+          image: gcr.io/google.com/cloudsdktool/google-cloud-cli:latest          
 ---
 apiVersion: v1
 kind: Service
