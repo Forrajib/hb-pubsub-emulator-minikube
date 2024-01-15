@@ -3,25 +3,25 @@ kind: Deployment
 metadata:
   name: gcp-emulator-deployment
   labels:
-    app: pubsubtwo
+    app: pubsubthree
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pubsubtwo
+      app: pubsubthree
   template:
     metadata:
       labels:
-        app: pubsubtwo
+        app: pubsubthree
     spec:
       containers:
-        - name: pubsubtwo-emulator
-          image: gcr.io/google.com/cloudsdktool/google-cloud-cli:latest          
+        - name: pubsubthree-emulator
+          image: gcr.io/google.com/cloudsdktool/google-cloud-cli:emulators          
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: pubsubtwo-service
+  name: pubsubthree-service
 spec:
   type: NodePort
   ports:
@@ -30,4 +30,4 @@ spec:
       targetPort: 8085
       nodePort: 30001
   selector:
-    app: pubsubtwo
+    app: pubsubthree
