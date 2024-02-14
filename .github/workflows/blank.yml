@@ -13,6 +13,7 @@ jobs:
       run: |
        Write-Output "Secrets:"
        Write-Output "-------"
+       Write-Output ${{ var.RAJIB_VARIABLE }}
         Get-ChildItem -Recurse -Filter "*.env" -File | ForEach-Object {
             Write-Output "File: $($_.FullName)"
             Write-Output Get-Content $_.FullName
