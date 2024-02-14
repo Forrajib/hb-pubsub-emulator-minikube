@@ -13,8 +13,8 @@ jobs:
       - name: Get GitHub environment variables and secrets
         shell: pwsh
         run: |
-          echo  "ssss ${{ vars.RAJIB_VARIABLE2}}"
-          Write-Output "Serect  RAJIB_VARIABLE2 ${{ vars.RAJIB_VARIABLE2 }} "
+          echo  "ssss ${{ env.RAJIB_VARIABLE2}}"
+          Write-Output "Serect  RAJIB_VARIABLE2 ${{ env.RAJIB_VARIABLE2 }} "
           Write-Output "Serect  RAJIBSECRET2 ${{ secrets.RAJIBSECRET1}} "
             
          
