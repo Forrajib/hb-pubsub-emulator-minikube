@@ -14,19 +14,7 @@ jobs:
       - name: Get GitHub environment variables and secrets
         id: get_env_vars
         run: |
-          Write-Output "Serect  RAJIBSECRET1 ${{secrets.RAJIBSECRET1}} "
-          Write-Output "Serect  RAJIBSECRET2 ${{secrets.RAJIBSECRET1}} "
+          Write-Output "Serect  RAJIBSECRET1 ${{ secrets.RAJIBSECRET1}} "
+          Write-Output "Serect  RAJIBSECRET2 ${{ secrets.RAJIBSECRET1}} "
             
-          $env_variables_url = "https://api.github.com/repos/hb-pubsub-emulator-minikube/environments/DEV/secrets"
-          $secrets_url = "https://api.github.com/repos/hb-pubsub-emulator-minikube/actions/secrets"
-
-          $env_variables_response = Invoke-RestMethod -Uri $env_variables_url -Headers @{Authorization = "Bearer {{ $env:GITHUB_TOKEN"}} } 
-          $secrets_response = Invoke-RestMethod -Uri $secrets_url -Headers @{Authorization = "Bearer {{ $env:GITHUB_TOKEN" }} }
-
-          $env_variables_response.data | ForEach-Object {
-              Write-Output "Environment Variable: $($_.name), Value: $($_.value)"
-          }
-
-          $secrets_response.secrets | ForEach-Object {
-              Write-Output "Secret: $($_.name)"
-          }
+         
