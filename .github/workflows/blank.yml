@@ -8,6 +8,8 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - name: 'Checkout GitHub Action'
+        uses: actions/checkout@v3
       - name: Get GitHub environment variables and secrets
         shell: pwsh
         run: |
