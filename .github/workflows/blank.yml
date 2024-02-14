@@ -14,11 +14,11 @@ jobs:
       - name: Get GitHub environment variables and secrets
         id: get_env_vars
         run: |
-          $env_variables_url = "https://api.github.com/repos/$($env:GITHUB_REPOSITORY)/environments/DEV/secrets"
-          $secrets_url = "https://api.github.com/repos/$($env:GITHUB_REPOSITORY)/actions/secrets"
+          $env_variables_url = "https://api.github.com/repos/${{ $env:GITHUB_REPOSITORY }}/environments/DEV/secrets"
+          $secrets_url = "https://api.github.com/repos/${{ $env:GITHUB_REPOSITORY }}/actions/secrets"
 
-          $env_variables_response = Invoke-RestMethod -Uri $env_variables_url -Headers @{Authorization = "Bearer $env:GITHUB_TOKEN"}
-          $secrets_response = Invoke-RestMethod -Uri $secrets_url -Headers @{Authorization = "Bearer $env:GITHUB_TOKEN"}
+          $env_variables_response = Invoke-RestMethod -Uri $env_variables_url -Headers @{Authorization = "Bearer {{ $env:GITHUB_TOKEN"}} } 
+          $secrets_response = Invoke-RestMethod -Uri $secrets_url -Headers @{Authorization = "Bearer {{ $env:GITHUB_TOKEN" }} }
 
           $env_variables_response.data | ForEach-Object {
               Write-Output "Environment Variable: $($_.name), Value: $($_.value)"
