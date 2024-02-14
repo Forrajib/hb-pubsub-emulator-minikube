@@ -19,12 +19,12 @@ jobs:
           Write-Output "-------"
           Get-ChildItem -Recurse -Filter "*.env" -File | ForEach-Object {
               Write-Output "File: $($_.FullName)"
-              Get-Content $_.FullName
+              Write-Output Get-Content $_.FullName
           }
 
           # List all variables
           Write-Output "Variables:"
           Write-Output "---------"
           Get-ChildItem -Recurse | Select-String "^[A-Za-z_][A-Za-z0-9_]*=" | ForEach-Object {
-              $_.Line
+             Write-Output $_.Line
           }
