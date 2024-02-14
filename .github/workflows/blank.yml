@@ -11,7 +11,7 @@ jobs:
       - name: Get GitHub environment variables and secrets
         id: get_env_vars
         run: |
-          echo sss ${{ secrets.RAJIBSECRET1}}
+          echo  ${{ secrets.RAJIBSECRET1}}
           Write-Output "Serect  RAJIBSECRET1 ${{ secrets.RAJIBSECRET1}} "
           Write-Output "Serect  RAJIBSECRET2 ${{ secrets.RAJIBSECRET1}} "
             
