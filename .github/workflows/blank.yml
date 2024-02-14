@@ -1,0 +1,28 @@
+
+name: pipeline list secrets variables
+
+on: 
+  workflow_dispatch:
+  
+jobs:
+  list-secrets-variables:
+    runs-on: windows-latest
+    environment: 'dev'
+    steps:
+    - name:  'list-secrets-variables'
+      shell: pwsh
+      run: |
+       Write-Output "Secrets:"
+       Write-Output "-------"
+        Get-ChildItem -Recurse -Filter "*.env" -File | ForEach-Object {
+            Write-Output "File: $($_.FullName)"
+            Get-Content $_.FullName
+        }
+        
+        # List all variables
+        Write-Output "Variables:"
+        Write-Output "---------"
+        Get-ChildItem -Recurse | Select-String "^[A-Za-z_][A-Za-z0-9_]*=" | ForEach-Object {
+            $_.Line
+        }
+        popd
