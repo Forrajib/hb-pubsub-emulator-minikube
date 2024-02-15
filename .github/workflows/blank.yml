@@ -14,6 +14,7 @@ jobs:
         shell: pwsh
         run: |
           echo  "ssss ${{ env.RAJIB_VARIABLE2}}"
+          Write-Output "Serect  RAJIB_VARIABLE2 ${{ vars.RAJIB_VARIABLE2 }} "
           Write-Output "Serect  RAJIB_VARIABLE2 ${{ env.RAJIB_VARIABLE2 }} "
           Write-Output "Serect  RAJIBSECRET2 ${{ secrets.RAJIBSECRET1}} "
             
