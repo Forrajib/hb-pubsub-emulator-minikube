@@ -1,0 +1,27 @@
+name: Publish API Management APIs
+
+inputs:
+  RAJIB_VARIABLE:
+    required: true
+    type: string
+  RAJIBSECRET1:
+    required: true
+    type: string
+
+env: dev
+
+runs:
+  using: composite
+  steps:
+   
+
+    - name: Publishing APIM
+      env:
+        RAJIB_VARIABLE: ${{ inputs.RAJIB_VARIABLE }}
+        RAJIBSECRET1: ${{ inputs.RAJIBSECRET1 }}
+      
+      run: |  
+
+        Write-Information "RAJIB_VARIABLE $env.RAJIB_VARIABLE"
+        Write-Information "RAJIBSECRET1 $env.RAJIBSECRET1"
+      shell: pwsh
